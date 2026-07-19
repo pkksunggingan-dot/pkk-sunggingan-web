@@ -1,82 +1,178 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PKK Kelurahan Sunggingan - Coming Soon</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            color: white;
-        }
-        .container {
-            text-align: center;
-            max-width: 600px;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-        .subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-        .badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-        }
-        .info {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-            margin-top: 2rem;
-        }
-        .info p {
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-        .footer {
-            margin-top: 3rem;
-            font-size: 0.85rem;
-            opacity: 0.7;
-        }
-    </style>
+  <!-- ═══════════════════════════════════════
+       META TAGS
+       ═══════════════════════════════════════ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO Meta -->
+  <title>TP PKK Kelurahan Sunggingan – Kudus, Jawa Tengah</title>
+  <meta name="description" content="Website resmi Tim Penggerak PKK Kelurahan Sunggingan, Kecamatan Kota, Kabupaten Kudus. Program kerja, kegiatan, dan layanan warga.">
+  <meta name="keywords" content="PKK, PKK Sunggingan, Kudus, Kelurahan Sunggingan, Posyandu, Bank Sampah, UMKM Kudus">
+  <meta name="author" content="TP PKK Kelurahan Sunggingan">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph (buat share ke sosmed) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TP PKK Kelurahan Sunggingan">
+  <meta property="og:description" content="Website resmi Tim Penggerak PKK Kelurahan Sunggingan, Kudus">
+  <meta property="og:url" content="https://pkksunggingan.my.id">
+  <meta property="og:image" content="https://pkksunggingan.my.id/assets/img/logo/logo-pkk.jpeg">
+  <meta property="og:locale" content="id_ID">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/img/logo/logo-pkk.jpeg">
+  <link rel="apple-touch-icon" href="assets/img/logo/logo-pkk.jpeg">
+
+  <!-- ═══════════════════════════════════════
+       GOOGLE FONTS
+       ═══════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- ═══════════════════════════════════════
+       STYLESHEET
+       ═══════════════════════════════════════ -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-    <div class="container">
-        <div class="badge">🚧 Website Dalam Pengembangan</div>
-        <h1>PKK Kelurahan Sunggingan</h1>
-        <p class="subtitle">Kecamatan Kota, Kabupaten Kudus, Jawa Tengah</p>
-        
-        <div class="info">
-            <p><strong>Melayani Keluarga, Membangun Kesejahteraan</strong></p>
-            <p>Website resmi kami akan segera hadir untuk memberikan informasi seputar kegiatan PKK, Posyandu, Bank Sampah, dan program unggulan Kelurahan Sunggingan.</p>
+
+  <!-- ══════════════════════════════════════════════════════════
+       HEADER — Logo + Navigation
+       ══════════════════════════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="header-brand">
+        <img src="assets/img/logo/logo-pkk.jpeg" alt="Logo TP PKK Kelurahan Sunggingan" class="header-logo">
+        <div class="header-brand-text">
+          <span class="brand-name">TP PKK</span>
+          <span class="brand-tagline">Kelurahan Sunggingan</span>
         </div>
-        
-        <div class="footer">
-            <p>© 2026 TP PKK Kelurahan Sunggingan</p>
-            <p>Dikembangkan oleh Mahasiswa KKN</p>
-        </div>
+      </a>
+
+      <nav class="header-nav" aria-label="Navigasi utama">
+        <ul class="nav-list">
+          <li><a href="#tentang" class="nav-link">Tentang</a></li>
+          <li><a href="#program" class="nav-link">Program Kerja</a></li>
+          <li><a href="#berita" class="nav-link">Berita</a></li>
+          <li><a href="#agenda" class="nav-link">Agenda</a></li>
+          <li><a href="#kontak" class="nav-link">Kontak</a></li>
+        </ul>
+      </nav>
+
+      <a href="#kontak" class="btn btn-outline btn-sm">Hubungi Kami</a>
+
+      <button class="mobile-menu-toggle" aria-label="Buka menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+  </header>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 1: HERO
+         ══════════════════════════════════════════════════════════ -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <p>[Section Hero - akan dikoding di Session 2]</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 2: QUICK ACCESS
+         ══════════════════════════════════════════════════════════ -->
+    <section class="quick-access">
+      <div class="container">
+        <p>[Section Quick Access - Session 2]</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 3: PROFIL & STATS
+         ══════════════════════════════════════════════════════════ -->
+    <section class="profil-stats" id="tentang">
+      <div class="container">
+        <p>[Section Profil & Stats - Session 3]</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 4: PROGRAM UNGGULAN
+         ══════════════════════════════════════════════════════════ -->
+    <section class="program-unggulan" id="program">
+      <div class="container">
+        <p>[Section Program Unggulan - Session 3]</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 5: BERITA & KEGIATAN
+         ══════════════════════════════════════════════════════════ -->
+    <section class="berita" id="berita">
+      <div class="container">
+        <p>[Section Berita - Session 4]</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 6: QUOTE KETUA TP PKK
+         ══════════════════════════════════════════════════════════ -->
+    <section class="quote-section quote-ketua">
+      <div class="container">
+        <p>[Quote Bu Alicia - Session 4]</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 7: AGENDA
+         ══════════════════════════════════════════════════════════ -->
+    <section class="agenda" id="agenda">
+      <div class="container">
+        <p>[Section Agenda - Session 4]</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 8: QUOTE KETUA PEMBINA
+         ══════════════════════════════════════════════════════════ -->
+    <section class="quote-section quote-pembina">
+      <div class="container">
+        <p>[Quote Pak Rikho - Session 4]</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 9: KONTAK
+         ══════════════════════════════════════════════════════════ -->
+    <section class="kontak" id="kontak">
+      <div class="container">
+        <p>[Section Kontak - Session 5]</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>[Footer - Session 5]</p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT
+       ═══════════════════════════════════════ -->
+  <script src="assets/js/main.js" defer></script>
+
 </body>
 </html>
