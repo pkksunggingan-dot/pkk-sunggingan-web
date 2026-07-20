@@ -2077,3 +2077,104 @@ section:not(.hero) > .container > p {
     text-align: left;
   }
 }
+
+/* ── Mobile Menu Overlay ── */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #7f5539 0%, #5a3d29 100%);
+  z-index: 999;
+  padding: 100px 24px 40px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  overflow-y: auto;
+}
+
+.mobile-menu.is-open {
+  display: block;
+  opacity: 1;
+}
+
+.mobile-menu nav {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+}
+
+.mobile-nav-list li {
+  border-bottom: 1px solid rgba(237, 224, 212, 0.2);
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: 20px 8px;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link:focus {
+  color: #EDE0D4;
+  padding-left: 16px;
+}
+
+.mobile-nav-cta {
+  display: block;
+  text-align: center;
+  background-color: #FFFFFF;
+  color: #7f5539;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 24px;
+  transition: transform 0.2s ease;
+}
+
+.mobile-nav-cta:hover {
+  transform: translateY(-2px);
+}
+
+/* Hamburger Icon Animation (X when active) */
+.mobile-menu-toggle {
+  position: relative;
+  z-index: 1000;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-menu-toggle.is-active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.mobile-menu-toggle.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.is-active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.mobile-menu-toggle.is-active span {
+  background-color: #FFFFFF;
+}
+
+/* Lock body scroll when menu open */
+body.menu-open {
+  overflow: hidden;
+}

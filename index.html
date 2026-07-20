@@ -67,7 +67,21 @@
 
       <a href="#kontak" class="btn btn-outline btn-sm">Hubungi Kami</a>
 
-      <button class="mobile-menu-toggle" aria-label="Buka menu">
+      <!-- Mobile Menu Overlay -->
+      <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <nav aria-label="Navigasi mobile">
+          <ul class="mobile-nav-list">
+            <li><a href="#tentang" class="mobile-nav-link">Tentang</a></li>
+            <li><a href="#program" class="mobile-nav-link">Program Kerja</a></li>
+            <li><a href="#berita" class="mobile-nav-link">Berita</a></li>
+            <li><a href="#agenda" class="mobile-nav-link">Agenda</a></li>
+            <li><a href="#kontak" class="mobile-nav-link">Kontak</a></li>
+          </ul>
+          <a href="#kontak" class="btn btn-primary mobile-nav-cta">Hubungi Kami</a>
+        </nav>
+      </div>
+
+      <button class="mobile-menu-toggle" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu">
         <span></span>
         <span></span>
         <span></span>
@@ -538,7 +552,7 @@
             
             <!-- Attribution -->
             <cite class="quote-attribution">
-              TP PKK Kelurahan Sunggingan
+              TP PKK Kelurahan Sunggingan0
             </cite>
             
           </div>
