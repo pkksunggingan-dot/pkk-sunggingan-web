@@ -10,19 +10,19 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /* ───────────────────────────────────────────────────────────────
-   MOBILE MENU TOGGLE
+   MOBILE MENU TOGGLE (Sidebar)
    ─────────────────────────────────────────────────────────────── */
 function initMobileMenu() {
   const toggle = document.querySelector('.mobile-menu-toggle');
   const menu = document.querySelector('.mobile-menu');
+  const backdrop = document.querySelector('.mobile-menu-backdrop');
   const body = document.body;
 
-  if (!toggle || !menu) return;
+  if (!toggle || !menu || !backdrop) return;
 
   // Toggle menu open/close
   toggle.addEventListener('click', function() {
     const isOpen = menu.classList.contains('is-open');
-
     if (isOpen) {
       closeMenu();
     } else {
@@ -30,7 +30,10 @@ function initMobileMenu() {
     }
   });
 
-  // Close menu when clicking a link (mobile nav link)
+  // Close menu when clicking backdrop
+  backdrop.addEventListener('click', closeMenu);
+
+  // Close menu when clicking a link
   const navLinks = menu.querySelectorAll('.mobile-nav-link, .mobile-nav-cta');
   navLinks.forEach(function(link) {
     link.addEventListener('click', closeMenu);
@@ -45,6 +48,7 @@ function initMobileMenu() {
 
   function openMenu() {
     menu.classList.add('is-open');
+    backdrop.classList.add('is-open');
     toggle.classList.add('is-active');
     body.classList.add('menu-open');
     toggle.setAttribute('aria-expanded', 'true');
@@ -54,6 +58,7 @@ function initMobileMenu() {
 
   function closeMenu() {
     menu.classList.remove('is-open');
+    backdrop.classList.remove('is-open');
     toggle.classList.remove('is-active');
     body.classList.remove('menu-open');
     toggle.setAttribute('aria-expanded', 'false');

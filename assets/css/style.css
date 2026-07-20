@@ -321,9 +321,19 @@ section:not(.hero) > .container > p {
   }
 
   .header-brand-text {
-    display: none;
-  }
+  display: flex;
+  flex-direction: column;
+}
 
+.header-brand-text .brand-name {
+  font-size: 14px;
+  line-height: 1.1;
+}
+
+.header-brand-text .brand-tagline {
+  font-size: 10px;
+  line-height: 1.2;
+}
   .btn-sm.btn-outline {
     display: none;
   }
@@ -2078,36 +2088,56 @@ section:not(.hero) > .container > p {
   }
 }
 
-/* ── Mobile Menu Overlay ── */
-.mobile-menu {
+/* ── Mobile Menu Backdrop (Overlay Layer) ── */
+.mobile-menu-backdrop {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, #7f5539 0%, #5a3d29 100%);
-  z-index: 999;
-  padding: 100px 24px 40px;
+  background-color: rgba(65, 72, 51, 0.6);
+  z-index: 998;
   opacity: 0;
   transition: opacity 0.3s ease;
-  overflow-y: auto;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
-.mobile-menu.is-open {
+.mobile-menu-backdrop.is-open {
   display: block;
   opacity: 1;
 }
 
+/* ── Mobile Menu Sidebar ── */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 80%;
+  max-width: 320px;
+  background: linear-gradient(180deg, #7f5539 0%, #5a3d29 100%);
+  z-index: 999;
+  padding: 80px 24px 32px;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-menu.is-open {
+  transform: translateX(0);
+}
+
 .mobile-menu nav {
-  max-width: 400px;
-  margin: 0 auto;
+  max-width: 100%;
 }
 
 .mobile-nav-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 32px 0;
+  margin: 0 0 24px 0;
 }
 
 .mobile-nav-list li {
@@ -2116,9 +2146,9 @@ section:not(.hero) > .container > p {
 
 .mobile-nav-link {
   display: block;
-  padding: 20px 8px;
+  padding: 16px 8px;
   font-family: 'Playfair Display', serif;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 600;
   color: #FFFFFF;
   text-decoration: none;
@@ -2136,9 +2166,10 @@ section:not(.hero) > .container > p {
   text-align: center;
   background-color: #FFFFFF;
   color: #7f5539;
-  padding: 16px 24px;
+  padding: 14px 24px;
   border-radius: 8px;
   font-family: 'Inter', sans-serif;
+  font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   margin-top: 24px;
@@ -2149,7 +2180,7 @@ section:not(.hero) > .container > p {
   transform: translateY(-2px);
 }
 
-/* Hamburger Icon Animation (X when active) */
+/* Hamburger Icon Animation */
 .mobile-menu-toggle {
   position: relative;
   z-index: 1000;
@@ -2171,7 +2202,7 @@ section:not(.hero) > .container > p {
 }
 
 .mobile-menu-toggle.is-active span {
-  background-color: #FFFFFF;
+  background-color: #7f5539;
 }
 
 /* Lock body scroll when menu open */
