@@ -1249,3 +1249,491 @@ section:not(.hero) > .container > p {
     padding: 28px 24px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 5: BERITA & KEGIATAN
+   ═══════════════════════════════════════════════════════════════ */
+
+.berita {
+  background-color: #FFFFFF;
+  padding: 80px 0;
+}
+
+/* ── Header dengan Lihat Semua ── */
+.berita-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.link-arrow-right {
+  padding-bottom: 8px;
+}
+
+/* ── Grid 3 Card ── */
+.berita-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* ── Card ── */
+.berita-card {
+  background-color: #FFFFFF;
+  border: 1px solid #EDE0D4;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.berita-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(127, 85, 57, 0.12);
+  border-color: #A68A64;
+}
+
+/* ── Image Placeholder ── */
+.berita-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #EDE0D4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.berita-image-placeholder {
+  color: #A68A64;
+  opacity: 0.6;
+}
+
+/* ── Card Content ── */
+.berita-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* ── Meta (Date + Tag) ── */
+.berita-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.berita-date {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #A68A64;
+}
+
+.berita-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  background-color: #EDE0D4;
+  color: #656D4A;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+/* ── Title ── */
+.berita-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #414833;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Excerpt ── */
+.berita-excerpt {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #2A2418;
+  margin-bottom: 20px;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Link CTA ── */
+.berita-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #7f5539;
+  text-decoration: none;
+  transition: gap 0.3s ease;
+  margin-top: auto;
+}
+
+.berita-link:hover {
+  gap: 12px;
+}
+
+/* ── Responsive: Tablet ── */
+@media (max-width: 968px) {
+  .berita-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .berita-card:nth-child(3) {
+    grid-column: span 2;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+/* ── Responsive: Mobile ── */
+@media (max-width: 640px) {
+  .berita {
+    padding: 60px 0;
+  }
+
+  .berita-header {
+    margin-bottom: 32px;
+  }
+
+  .berita-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .berita-card:nth-child(3) {
+    grid-column: auto;
+    max-width: 100%;
+  }
+
+  .berita-title {
+    font-size: 18px;
+  }
+} 
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 6 & 8: QUOTE SECTIONS
+   ═══════════════════════════════════════════════════════════════ */
+
+.quote-section {
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Variant: Quote Alicia (Solid Brown) ── */
+.quote-alicia {
+  background-color: #7f5539;
+  color: #FFFFFF;
+}
+
+/* ── Wrapper (Content Container) ── */
+.quote-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+/* ── Decorative Quote Mark ── */
+.quote-mark {
+  color: #A68A64;
+  opacity: 0.25;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ── Quote Text ── */
+.quote-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5;
+  color: #FFFFFF;
+  margin: 0 0 40px 0;
+  letter-spacing: 0.3px;
+}
+
+/* ── Divider Line ── */
+.quote-divider {
+  width: 48px;
+  height: 2px;
+  background-color: #A68A64;
+  margin: 0 auto 24px;
+}
+
+/* ── Attribution ── */
+.quote-attribution {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  font-style: normal;
+  color: #EDE0D4;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+}
+
+/* ── Responsive: Tablet ── */
+@media (max-width: 968px) {
+  .quote-section {
+    padding: 100px 0;
+  }
+
+  .quote-text {
+    font-size: 28px;
+  }
+}
+
+/* ── Responsive: Mobile ── */
+@media (max-width: 640px) {
+  .quote-section {
+    padding: 80px 0;
+  }
+
+  .quote-mark svg {
+    width: 60px;
+    height: 60px;
+  }
+
+  .quote-mark {
+    margin-bottom: 24px;
+  }
+
+  .quote-text {
+    font-size: 22px;
+    line-height: 1.5;
+    margin-bottom: 32px;
+  }
+
+  .quote-divider {
+    width: 40px;
+    margin-bottom: 20px;
+  }
+
+  .quote-attribution {
+    font-size: 13px;
+  }
+}
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 7: AGENDA KEGIATAN
+   ═══════════════════════════════════════════════════════════════ */
+
+.agenda {
+  background-color: #FFFFFF;
+  padding: 80px 0;
+}
+
+/* ── Header (Reuse Berita Header Pattern) ── */
+.agenda-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+/* ── Agenda List ── */
+.agenda-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ── Agenda Item ── */
+.agenda-item {
+  border-bottom: 1px solid #EDE0D4;
+}
+
+.agenda-item:last-child {
+  border-bottom: none;
+}
+
+/* ── Link Wrapper (Full Row Clickable) ── */
+.agenda-link {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
+  border-radius: 8px;
+}
+
+.agenda-link:hover {
+  background-color: #FAFAF7;
+  padding-left: 24px;
+}
+
+/* ── Date Badge ── */
+.agenda-date {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  background-color: #EDE0D4;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.agenda-link:hover .agenda-date {
+  background-color: #7f5539;
+}
+
+.agenda-link:hover .agenda-date .agenda-date-day,
+.agenda-link:hover .agenda-date .agenda-date-month {
+  color: #FFFFFF;
+}
+
+.agenda-date-day {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #7f5539;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.agenda-date-month {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #656D4A;
+  margin-top: 4px;
+  transition: color 0.3s ease;
+}
+
+/* ── Highlight Variant (HUT RI, etc) ── */
+.agenda-date-highlight {
+  background-color: #7f5539;
+}
+
+.agenda-date-highlight .agenda-date-day,
+.agenda-date-highlight .agenda-date-month {
+  color: #FFFFFF;
+}
+
+/* ── Body (Title + Meta) ── */
+.agenda-body {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.agenda-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #414833;
+  margin: 0 0 8px 0;
+}
+
+.agenda-meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.agenda-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #656D4A;
+}
+
+.agenda-meta-item svg {
+  flex-shrink: 0;
+  color: #A68A64;
+}
+
+/* ── Arrow ── */
+.agenda-arrow {
+  flex-shrink: 0;
+  color: #A68A64;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.agenda-link:hover .agenda-arrow {
+  color: #7f5539;
+  transform: translateX(6px);
+}
+
+/* ── Responsive: Tablet ── */
+@media (max-width: 768px) {
+  .agenda-header {
+    margin-bottom: 32px;
+  }
+
+  .agenda-link {
+    gap: 16px;
+    padding: 16px 12px;
+  }
+
+  .agenda-date {
+    width: 56px;
+    height: 56px;
+  }
+
+  .agenda-date-day {
+    font-size: 20px;
+  }
+
+  .agenda-title {
+    font-size: 16px;
+  }
+}
+
+/* ── Responsive: Mobile ── */
+@media (max-width: 640px) {
+  .agenda {
+    padding: 60px 0;
+  }
+
+  .agenda-meta {
+    gap: 12px;
+  }
+
+  .agenda-meta-item {
+    font-size: 12px;
+  }
+
+  .agenda-arrow svg {
+    width: 16px;
+    height: 16px;
+  }
+}
