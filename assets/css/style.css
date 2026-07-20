@@ -1737,3 +1737,343 @@ section:not(.hero) > .container > p {
     height: 16px;
   }
 }
+/* ── Variant: Quote Rikho (Gradient Brown) ── */
+.quote-rikho {
+  background: linear-gradient(135deg, #7f5539 0%, #5a3d29 100%);
+  color: #FFFFFF;
+}
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 9: KONTAK & LOKASI
+   ═══════════════════════════════════════════════════════════════ */
+
+.kontak {
+  background-color: #EDE0D4;
+  padding: 80px 0;
+}
+
+/* ── Header ── */
+.kontak-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 56px;
+}
+
+/* ── Grid 2 Kolom Asymmetric (40/60) ── */
+.kontak-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 48px;
+  align-items: stretch;
+}
+
+/* ── Kolom Info ── */
+.kontak-info {
+  background-color: #FFFFFF;
+  padding: 40px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ── Kontak Item ── */
+.kontak-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.kontak-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background-color: #EDE0D4;
+  color: #7f5539;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kontak-detail {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.kontak-label {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #A68A64;
+  margin-bottom: 4px;
+}
+
+.kontak-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #2A2418;
+  margin: 0;
+}
+
+.kontak-value-link {
+  color: #7f5539;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.kontak-value-link:hover {
+  color: #5a3d29;
+  text-decoration: underline;
+}
+
+/* ── CTA Button WhatsApp ── */
+.btn-kontak {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #25D366;
+  color: #FFFFFF;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 8px;
+  align-self: flex-start;
+}
+
+.btn-kontak:hover {
+  background-color: #128C7E;
+  transform: translateY(-2px);
+}
+
+/* ── Kolom Map ── */
+.kontak-map {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 500px;
+}
+
+.kontak-map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+}
+
+/* ── Responsive: Tablet ── */
+@media (max-width: 968px) {
+  .kontak-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .kontak-map {
+    min-height: 400px;
+  }
+
+  .kontak-map iframe {
+    min-height: 400px;
+  }
+}
+
+/* ── Responsive: Mobile ── */
+@media (max-width: 640px) {
+  .kontak {
+    padding: 60px 0;
+  }
+
+  .kontak-header {
+    margin-bottom: 40px;
+  }
+
+  .kontak-info {
+    padding: 28px 24px;
+    gap: 24px;
+  }
+
+  .kontak-map {
+    min-height: 300px;
+  }
+
+  .kontak-map iframe {
+    min-height: 300px;
+  }
+
+  .btn-kontak {
+    width: 100%;
+    align-self: stretch;
+  }
+}
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════════ */
+
+.site-footer {
+  background-color: #414833;
+  color: #EDE0D4;
+  padding: 60px 0 0;
+}
+
+/* ── Footer Main: 4 Kolom Grid ── */
+.footer-main {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(237, 224, 212, 0.15);
+}
+
+/* ── Brand Column ── */
+.footer-brand {
+  max-width: 320px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.footer-logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+}
+
+.footer-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+
+.footer-brand-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #A68A64;
+  margin-top: 2px;
+}
+
+.footer-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #A68A64;
+  margin: 0 0 20px 0;
+}
+
+.footer-address {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #EDE0D4;
+}
+
+.footer-address svg {
+  flex-shrink: 0;
+  color: #A68A64;
+}
+
+/* ── Link Columns ── */
+.footer-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 20px 0;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #A68A64;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #EDE0D4;
+}
+
+/* ── Footer Bottom: Copyright ── */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copyright,
+.footer-credit {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #A68A64;
+  margin: 0;
+}
+
+/* ── Responsive: Tablet ── */
+@media (max-width: 968px) {
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 32px;
+  }
+
+  .footer-brand {
+    grid-column: span 2;
+    max-width: 100%;
+  }
+}
+
+/* ── Responsive: Mobile ── */
+@media (max-width: 640px) {
+  .site-footer {
+    padding: 48px 0 0;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 32px;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
