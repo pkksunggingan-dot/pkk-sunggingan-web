@@ -292,7 +292,7 @@ section {
 
 /* Placeholder cuma untuk section yang belum di-code
    (cuma yang punya <p> langsung di dalam .container, bukan nested) */
-section:not(.hero) > .container > p {
+section:not(.hero):not(.tentang-hero) > .container > p {
   color: var(--color-primary-light);
   text-align: center;
   font-style: italic;
@@ -339,263 +339,6 @@ section:not(.hero) > .container > p {
   }
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   SECTION: HERO
-   ═══════════════════════════════════════════════════════════════ */
-.hero {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-text-dark) 100%);
-  color: var(--color-white);
-  padding-block: var(--space-4xl);
-  overflow: hidden;
-  position: relative;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 40%;
-  height: 100%;
-  background: radial-gradient(circle at top right, var(--color-primary-light), transparent 60%);
-  opacity: 0.3;
-  pointer-events: none;
-}
-
-.hero .container {
-  position: relative;
-  z-index: 1;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  gap: var(--space-3xl);
-  align-items: center;
-  min-height: 500px;
-}
-
-/* Hero Content (Kiri) */
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-sm);
-  background: rgba(237, 224, 212, 0.15);
-  color: var(--color-background);
-  padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--radius-full);
-  font-size: var(--fs-small);
-  font-weight: 500;
-  border: 1px solid rgba(237, 224, 212, 0.3);
-  width: fit-content;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.hero-badge-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--color-gold-accent);
-  border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.2); }
-}
-
-.hero-title {
-  font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 700;
-  line-height: 1.15;
-  color: var(--color-white);
-  letter-spacing: -0.02em;
-  margin-block: var(--space-md) var(--space-lg);
-}
-
-.hero-subtitle {
-  font-size: 1.125rem;
-  line-height: var(--lh-relaxed);
-  color: var(--color-background);
-  max-width: 540px;
-  margin-bottom: var(--space-xl);
-}
-
-.hero-cta {
-  display: flex;
-  gap: var(--space-md);
-  flex-wrap: wrap;
-}
-
-.btn-hero-primary {
-  background: var(--color-gold-accent);
-  color: var(--color-text-dark);
-  padding: var(--space-md) var(--space-2xl);
-  font-size: var(--fs-body);
-  font-weight: 600;
-  border-radius: var(--radius-md);
-  transition: all var(--transition-normal);
-  border: 2px solid var(--color-gold-accent);
-}
-
-.btn-hero-primary:hover {
-  background: var(--color-white);
-  border-color: var(--color-white);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-.btn-hero-secondary {
-  background: transparent;
-  color: var(--color-white);
-  padding: var(--space-md) var(--space-2xl);
-  font-size: var(--fs-body);
-  font-weight: 600;
-  border-radius: var(--radius-md);
-  border: 2px solid var(--color-background);
-  transition: all var(--transition-normal);
-}
-
-.btn-hero-secondary:hover {
-  background: var(--color-white);
-  color: var(--color-primary);
-  border-color: var(--color-white);
-  transform: translateY(-2px);
-}
-
-/* Hero Visual (Kanan) */
-.hero-visual {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-lg);
-}
-
-.hero-photo-frame {
-  width: 100%;
-  max-width: 380px;
-  aspect-ratio: 4 / 5;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--color-white);
-  padding: var(--space-md);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-  position: relative;
-}
-
-.hero-photo-frame::before {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--color-gold-accent), var(--color-background));
-  z-index: -1;
-}
-
-.hero-photo-placeholder {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--color-background), var(--color-primary-light));
-  border-radius: var(--radius-md);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-md);
-  color: var(--color-primary);
-}
-
-.hero-photo-icon {
-  width: 80px;
-  height: 80px;
-  background: rgba(127, 85, 57, 0.15);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-primary);
-}
-
-.hero-photo-label {
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-size: var(--fs-small);
-  color: var(--color-primary);
-  opacity: 0.7;
-}
-
-.hero-caption {
-  text-align: center;
-}
-
-.hero-caption-name {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--color-white);
-  margin-bottom: var(--space-xs);
-}
-
-.hero-caption-title {
-  font-size: var(--fs-small);
-  color: var(--color-background);
-  font-style: italic;
-  opacity: 0.85;
-}
-
-/* Hero Responsive */
-@media (max-width: 968px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-2xl);
-    text-align: center;
-  }
-
-  .hero-content {
-    align-items: center;
-  }
-
-  .hero-subtitle {
-    margin-inline: auto;
-  }
-
-  .hero-cta {
-    justify-content: center;
-  }
-
-  .hero-visual {
-    order: -1;
-    max-width: 320px;
-    margin-inline: auto;
-  }
-}
-
-@media (max-width: 640px) {
-  .hero {
-    padding-block: var(--space-3xl);
-  }
-
-  .hero-cta {
-    flex-direction: column;
-    width: 100%;
-    max-width: 320px;
-    margin-inline: auto;
-  }
-
-  .btn-hero-primary,
-  .btn-hero-secondary {
-    width: 100%;
-    justify-content: center;
-  }
-}
 /* ═══════════════════════════════════════════════════════════════
    SECTION: HERO
    ═══════════════════════════════════════════════════════════════ */
@@ -2221,4 +1964,573 @@ section:not(.hero) > .container > p {
 /* Lock body scroll when menu open */
 body.menu-open {
   overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION: HALAMAN TENTANG
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Nav active state (dipakai di header halaman Tentang) ── */
+.nav-link.is-active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.nav-link.is-active::after {
+  width: 100%;
+}
+
+.mobile-nav-link.is-active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* Focus state jelas untuk semua link & tombol halaman Tentang */
+.tentang-hero a:focus-visible,
+.tentang-vismi a:focus-visible,
+.tentang-program a:focus-visible,
+.tentang-pokja a:focus-visible,
+.tentang-pengurus a:focus-visible,
+.tentang-cta a:focus-visible,
+.tentang-cta-btn-primary:focus-visible,
+.tentang-cta-btn-secondary:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Header section terpusat (reusable dalam halaman Tentang) ── */
+.tentang-section-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 56px;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   TENTANG · SECTION 1: PAGE HERO
+   ─────────────────────────────────────────────────────────────── */
+.tentang-hero {
+  background: linear-gradient(135deg, #7f5539 0%, #5a3d29 100%);
+  color: var(--color-white);
+  padding-block: 100px;
+  text-align: center;
+}
+
+.tentang-breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-size: 13px;
+  color: var(--color-background);
+  margin-bottom: var(--space-lg);
+}
+
+.tentang-breadcrumb a {
+  color: var(--color-background);
+  opacity: 0.85;
+}
+
+.tentang-breadcrumb a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.tentang-breadcrumb span[aria-current] {
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.tentang-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-white);
+  max-width: 800px;
+  margin: 0 auto var(--space-md);
+}
+
+.tentang-hero-subtitle {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: var(--lh-relaxed);
+  color: var(--color-background);
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   TENTANG · SECTION 2: VISI & MISI
+   ─────────────────────────────────────────────────────────────── */
+.tentang-vismi {
+  background-color: var(--color-white);
+  padding-block: 80px;
+}
+
+.tentang-vismi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+.tentang-vismi-col {
+  min-width: 0;
+}
+
+.tentang-vismi-text {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-body);
+}
+
+.tentang-misi-list {
+  list-style: decimal;
+  padding-left: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.tentang-misi-list li {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: var(--lh-normal);
+  color: var(--color-text-body);
+  padding-left: var(--space-sm);
+}
+
+.tentang-misi-list li::marker {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   TENTANG · SECTION 3: SEJARAH (Timeline)
+   ─────────────────────────────────────────────────────────────── */
+.tentang-sejarah {
+  background-color: #F5EFE6;
+  padding-block: 80px;
+}
+
+.tentang-timeline {
+  position: relative;
+  max-width: 760px;
+  margin-inline: auto;
+  padding-left: 40px;
+}
+
+.tentang-timeline::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 7px;
+  width: 2px;
+  background-color: var(--color-primary);
+}
+
+.tentang-timeline-item {
+  position: relative;
+  padding-bottom: var(--space-2xl);
+}
+
+.tentang-timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.tentang-timeline-dot {
+  position: absolute;
+  left: -40px;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #5a3d29;
+  border: 3px solid #F5EFE6;
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.tentang-timeline-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.tentang-timeline-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(127, 85, 57, 0.12);
+}
+
+.tentang-timeline-year {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.tentang-timeline-text {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: var(--lh-normal);
+  color: var(--color-text-body);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   TENTANG · SECTION 4: 10 PROGRAM POKOK
+   ─────────────────────────────────────────────────────────────── */
+.tentang-program {
+  background-color: var(--color-white);
+  padding-block: 80px;
+}
+
+.tentang-program-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.tentang-program-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-background);
+  border-top: 3px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: 24px 20px;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.tentang-program-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(127, 85, 57, 0.12);
+}
+
+.tentang-program-num {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-primary);
+  opacity: 0.85;
+  margin-bottom: var(--space-md);
+}
+
+.tentang-program-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-text-dark);
+  margin-bottom: var(--space-sm);
+}
+
+.tentang-program-desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: var(--lh-normal);
+  color: var(--color-accent);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   TENTANG · SECTION 5: 4 POKJA
+   ─────────────────────────────────────────────────────────────── */
+.tentang-pokja {
+  background-color: #EDE0D4;
+  padding-block: 80px;
+}
+
+.tentang-pokja-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.tentang-pokja-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.tentang-pokja-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(127, 85, 57, 0.12);
+}
+
+.tentang-pokja-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-sm);
+}
+
+.tentang-pokja-title {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.tentang-pokja-sub {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.tentang-pokja-desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: var(--lh-normal);
+  color: var(--color-text-body);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   TENTANG · SECTION 6: SUSUNAN PENGURUS
+   ─────────────────────────────────────────────────────────────── */
+.tentang-pengurus {
+  background-color: var(--color-white);
+  padding-block: 80px;
+}
+
+.tentang-pengurus-lead {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.tentang-pengurus-subhead {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+  margin-block: var(--space-2xl) var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--color-background);
+}
+
+.tentang-pengurus-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.tentang-pengurus-card {
+  background-color: var(--color-near-white);
+  border: 1px solid var(--color-background);
+  border-radius: var(--radius-lg);
+  padding: 24px 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.tentang-pengurus-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(127, 85, 57, 0.12);
+}
+
+.tentang-pengurus-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tentang-pengurus-name {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-text-dark);
+}
+
+.tentang-pengurus-role {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-accent);
+}
+
+/* Kartu Ketua (highlight) */
+.tentang-pengurus-card.is-ketua {
+  background: linear-gradient(135deg, #7f5539 0%, #5a3d29 100%);
+  border-color: transparent;
+  max-width: 320px;
+  width: 100%;
+  padding: 32px 24px;
+}
+
+.tentang-pengurus-card.is-ketua .tentang-pengurus-avatar {
+  width: 88px;
+  height: 88px;
+  background-color: rgba(237, 224, 212, 0.2);
+  color: var(--color-white);
+}
+
+.tentang-pengurus-card.is-ketua .tentang-pengurus-name {
+  font-size: 20px;
+  color: var(--color-white);
+}
+
+.tentang-pengurus-card.is-ketua .tentang-pengurus-role {
+  color: var(--color-background);
+  font-weight: 500;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   TENTANG · SECTION 7: CTA HUBUNGI KAMI
+   ─────────────────────────────────────────────────────────────── */
+.tentang-cta {
+  background-color: #7f5539;
+  padding-block: 100px;
+}
+
+.tentang-cta-inner {
+  max-width: 720px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.tentang-cta-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+
+.tentang-cta-text {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: var(--lh-relaxed);
+  color: var(--color-background);
+  margin-bottom: var(--space-xl);
+}
+
+.tentang-cta-actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tentang-cta-btn-primary {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  border: 2px solid var(--color-background);
+}
+
+.tentang-cta-btn-primary:hover {
+  background-color: var(--color-white);
+  border-color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+.tentang-cta-btn-secondary {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.tentang-cta-btn-secondary:hover {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  border-color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   TENTANG · RESPONSIVE
+   ─────────────────────────────────────────────────────────────── */
+@media (max-width: 968px) {
+  .tentang-hero {
+    padding-block: 72px;
+  }
+
+  .tentang-vismi-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .tentang-program-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tentang-pokja-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tentang-pengurus-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .tentang-vismi,
+  .tentang-sejarah,
+  .tentang-program,
+  .tentang-pokja,
+  .tentang-pengurus {
+    padding-block: 60px;
+  }
+
+  .tentang-hero {
+    padding-block: 60px;
+  }
+
+  .tentang-cta {
+    padding-block: 72px;
+  }
+
+  .tentang-section-header {
+    margin-bottom: 40px;
+  }
+
+  .tentang-program-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tentang-pokja-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tentang-pengurus-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tentang-cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 320px;
+    margin-inline: auto;
+  }
+
+  .tentang-cta-btn-primary,
+  .tentang-cta-btn-secondary {
+    width: 100%;
+  }
 }
