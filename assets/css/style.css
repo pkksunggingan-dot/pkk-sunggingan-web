@@ -904,10 +904,11 @@ section:not(.hero):not(.tentang-hero) > .container > p {
 /* ── Grid 4 Card ── */
 .program-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
 }
-
 /* ── Card ── */
 .program-card {
   background-color: #FFFFFF;
@@ -980,6 +981,7 @@ section:not(.hero):not(.tentang-hero) > .container > p {
   .program-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    max-width: 100%;
   }
 }
 
