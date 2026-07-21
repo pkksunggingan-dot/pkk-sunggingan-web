@@ -1835,19 +1835,31 @@ section:not(.hero) > .container > p {
   text-decoration: none;
   transition: color 0.2s ease;
 }
+.kontak-note {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.5;
+  color: #A68A64;
+  margin: 8px 0 0 0;
+  padding: 8px 12px;
+  background-color: rgba(237, 224, 212, 0.4);
+  border-left: 3px solid #A68A64;
+  border-radius: 4px;
+}
 
 .kontak-value-link:hover {
   color: #5a3d29;
   text-decoration: underline;
 }
 
-/* ── CTA Button WhatsApp ── */
-.btn-kontak {
+/* ── CTA Button Email ── */
+.btn-kontak { 
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background-color: #25D366;
+  background-color: #7f5539;
   color: #FFFFFF;
   padding: 14px 24px;
   border-radius: 8px;
@@ -1861,9 +1873,10 @@ section:not(.hero) > .container > p {
 }
 
 .btn-kontak:hover {
-  background-color: #128C7E;
+  background-color: #5a3d29;
   transform: translateY(-2px);
 }
+
 
 /* ── Kolom Map ── */
 .kontak-map {
