@@ -2337,72 +2337,69 @@ body.menu-open {
   background-color: var(--color-near-white);
   border: 1px solid var(--color-background);
   border-radius: var(--radius-lg);
-  padding: 24px 16px;
+  padding: 20px 16px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-sm);
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  gap: 4px;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
 }
 
 .tentang-pengurus-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(127, 85, 57, 0.12);
-}
-
-.tentang-pengurus-avatar {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background-color: var(--color-background);
-  color: var(--color-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  border-color: var(--color-accent);
 }
 
 .tentang-pengurus-name {
   font-family: var(--font-heading);
   font-size: 15px;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.3;
   color: var(--color-text-dark);
+  margin: 0;
 }
 
 .tentang-pengurus-role {
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
   color: var(--color-accent);
+  margin: 0;
 }
 
 /* Kartu Ketua (highlight) */
 .tentang-pengurus-card.is-ketua {
   background: linear-gradient(135deg, #7f5539 0%, #5a3d29 100%);
   border-color: transparent;
-  max-width: 320px;
+  max-width: 280px;
   width: 100%;
-  padding: 32px 24px;
+  padding: 24px 20px;
+  gap: 6px;
+  box-shadow: 0 8px 24px rgba(127, 85, 57, 0.18);
 }
 
-.tentang-pengurus-card.is-ketua .tentang-pengurus-avatar {
-  width: 88px;
-  height: 88px;
-  background-color: rgba(237, 224, 212, 0.2);
-  color: var(--color-white);
+.tentang-pengurus-card.is-ketua:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(127, 85, 57, 0.28);
+  border-color: transparent;
 }
 
 .tentang-pengurus-card.is-ketua .tentang-pengurus-name {
-  font-size: 20px;
+  font-size: 24px;
   color: var(--color-white);
+  line-height: 1.2;
 }
 
 .tentang-pengurus-card.is-ketua .tentang-pengurus-role {
+  font-size: 13px;
   color: var(--color-background);
   font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
-
 /* ───────────────────────────────────────────────────────────────
    TENTANG · SECTION 7: CTA HUBUNGI KAMI
    ─────────────────────────────────────────────────────────────── */
