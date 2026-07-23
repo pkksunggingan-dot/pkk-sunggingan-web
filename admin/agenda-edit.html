@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Edit Agenda - Admin PKK Sunggingan</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+    
+    <aside class="admin-sidebar">
+      <div class="admin-brand">
+        <img src="/assets/img/logo/logo-pkk.PNG" alt="Logo" class="admin-brand-logo">
+        <div class="admin-brand-text">
+          <span class="admin-brand-name">PKK Admin</span>
+          <span class="admin-brand-sub">Sunggingan</span>
+        </div>
+      </div>
+
+      <nav class="admin-nav">
+        <a href="/admin/index.html" class="admin-nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Dashboard
+        </a>
+        <a href="/admin/berita.html" class="admin-nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
+          Berita
+        </a>
+        <a href="/admin/agenda.html" class="admin-nav-link is-active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Agenda
+        </a>
+        <a href="/admin/program.html" class="admin-nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Program
+        </a>
+      </nav>
+
+      <div class="admin-user-info">
+        <div class="admin-user-name" id="userName">Loading...</div>
+        <div class="admin-user-email" id="userEmail"></div>
+        <button class="btn-logout" onclick="handleLogout()">Logout</button>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      
+      <div class="admin-page-header">
+        <div>
+          <h1>Edit Agenda</h1>
+          <p>Ubah detail event, klik simpan setelah selesai</p>
+        </div>
+        <a href="/admin/agenda.html" class="btn-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Kembali
+        </a>
+      </div>
+
+      <div id="loadingState" class="loading-state">Memuat data agenda...</div>
+
+      <div id="notFoundState" class="empty-state" style="display: none;">
+        <p><strong>Agenda tidak ditemukan.</strong></p>
+        <a href="/admin/agenda.html" class="btn-primary" style="margin-top: 16px;">Kembali ke Daftar</a>
+      </div>
+
+      <div class="admin-form-card" id="formCard" style="display: none;">
+        <div id="alertMessage" style="display: none;"></div>
+
+        <form id="agendaForm">
+          <div class="admin-form-group">
+            <label for="judul" class="admin-form-label">
+              Nama Event <span style="color: #C0392B;">*</span>
+            </label>
+            <input type="text" id="judul" name="judul" class="admin-form-input" required maxlength="200">
+          </div>
+
+          <div class="admin-form-group">
+            <label for="tanggal" class="admin-form-label">
+              Tanggal Event <span style="color: #C0392B;">*</span>
+            </label>
+            <input type="date" id="tanggal" name="tanggal" class="admin-form-input" required>
+          </div>
+
+          <div class="admin-form-group">
+            <label for="jam" class="admin-form-label">Jam</label>
+            <input type="text" id="jam" name="jam" class="admin-form-input" placeholder="09:00 WIB">
+          </div>
+
+          <div class="admin-form-group">
+            <label for="lokasi" class="admin-form-label">Lokasi</label>
+            <input type="text" id="lokasi" name="lokasi" class="admin-form-input">
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-form-label" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" id="highlight" name="highlight" style="width: 18px; height: 18px; cursor: pointer;">
+              <span>Event Prioritas</span>
+            </label>
+          </div>
+
+          <div class="admin-form-actions">
+            <button type="submit" class="btn-primary" id="submitBtn">
+              <span class="btn-text">Simpan Perubahan</span>
+              <span class="btn-loader" style="display: none;">Menyimpan...</span>
+            </button>
+            <a href="/admin/agenda.html" class="btn-secondary">Batal</a>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/supabase.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/agenda.js"></script>
+
+  <script>
+    let currentAgendaId = null;
+
+    (async function() {
+      const isAuth = await Auth.requireAuth();
+      if (!isAuth) return;
+
+      const admin = await Auth.getAdminInfo();
+      if (admin) {
+        document.getElementById('userName').textContent = admin.nama;
+        document.getElementById('userEmail').textContent = admin.email;
+      }
+
+      const urlParams = new URLSearchParams(window.location.search);
+      currentAgendaId = urlParams.get('id');
+
+      if (!currentAgendaId) {
+        showNotFound();
+        return;
+      }
+
+      const agenda = await Agenda.getById(currentAgendaId);
+
+      if (!agenda) {
+        showNotFound();
+        return;
+      }
+
+      document.getElementById('judul').value = agenda.judul || '';
+      document.getElementById('tanggal').value = agenda.tanggal || '';
+      document.getElementById('jam').value = agenda.jam || '';
+      document.getElementById('lokasi').value = agenda.lokasi || '';
+      document.getElementById('highlight').checked = agenda.highlight || false;
+
+      document.getElementById('loadingState').style.display = 'none';
+      document.getElementById('formCard').style.display = 'block';
+    })();
+
+    function showNotFound() {
+      document.getElementById('loadingState').style.display = 'none';
+      document.getElementById('notFoundState').style.display = 'block';
+    }
+
+    document.getElementById('agendaForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const btn = document.getElementById('submitBtn');
+      const btnText = btn.querySelector('.btn-text');
+      const btnLoader = btn.querySelector('.btn-loader');
+      const alertBox = document.getElementById('alertMessage');
+
+      btn.disabled = true;
+      btnText.style.display = 'none';
+      btnLoader.style.display = 'inline';
+      alertBox.style.display = 'none';
+
+      const formData = {
+        judul: document.getElementById('judul').value.trim(),
+        tanggal: document.getElementById('tanggal').value,
+        jam: document.getElementById('jam').value.trim(),
+        lokasi: document.getElementById('lokasi').value.trim(),
+        highlight: document.getElementById('highlight').checked
+      };
+
+      const result = await Agenda.update(currentAgendaId, formData);
+
+      if (result.success) {
+        alertBox.className = 'form-alert form-alert-success';
+        alertBox.textContent = '✓ Agenda berhasil diperbarui!';
+        alertBox.style.display = 'block';
+
+        setTimeout(() => {
+          window.location.href = '/admin/agenda.html';
+        }, 1500);
+      } else {
+        alertBox.className = 'form-alert form-alert-error';
+        alertBox.textContent = '✗ Gagal update agenda: ' + result.error;
+        alertBox.style.display = 'block';
+        
+        btn.disabled = false;
+        btnText.style.display = 'inline';
+        btnLoader.style.display = 'none';
+      }
+    });
+
+    async function handleLogout() {
+      if (confirm('Yakin mau logout?')) await Auth.logout();
+    }
+  </script>
+
+</body>
+</html>
