@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Dashboard - Admin PKK Sunggingan</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+    
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      
+      <div class="admin-brand">
+        <img src="/assets/img/logo/logo-pkk.PNG" alt="Logo" class="admin-brand-logo">
+        <div class="admin-brand-text">
+          <span class="admin-brand-name">PKK Admin</span>
+          <span class="admin-brand-sub">Sunggingan</span>
+        </div>
+      </div>
+
+      <nav class="admin-nav">
+        <a href="/admin/index.html" class="admin-nav-link is-active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="/admin/berita.html" class="admin-nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
+            <path d="M18 14h-8"/>
+            <path d="M15 18h-5"/>
+            <path d="M10 6h8v4h-8V6Z"/>
+          </svg>
+          Berita
+        </a>
+        <a href="/admin/agenda.html" class="admin-nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          Agenda
+        </a>
+        <a href="/admin/program.html" class="admin-nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          Program
+        </a>
+      </nav>
+
+      <div class="admin-user-info">
+        <div class="admin-user-name" id="userName">Loading...</div>
+        <div class="admin-user-email" id="userEmail"></div>
+        <button class="btn-logout" onclick="handleLogout()">Logout</button>
+      </div>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <div class="admin-header">
+        <h1>Dashboard</h1>
+        <p>Selamat datang di panel admin TP PKK Kelurahan Sunggingan</p>
+      </div>
+
+      <!-- Statistik cepat -->
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-card-label">Total Berita</div>
+          <div class="stat-card-value" id="statBerita">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Agenda Mendatang</div>
+          <div class="stat-card-value" id="statAgenda">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Halaman Program</div>
+          <div class="stat-card-value" id="statProgram">2</div>
+        </div>
+      </div>
+
+      <div class="admin-header">
+        <h1 style="font-size: 20px;">Panduan Cepat</h1>
+      </div>
+      <div style="background: white; padding: 24px; border-radius: 12px;">
+        <p style="margin-bottom: 12px;"><strong>Cara Menggunakan Admin Panel:</strong></p>
+        <ul style="padding-left: 20px; line-height: 2;">
+          <li>Klik menu <strong>Berita</strong> di sidebar untuk tambah/edit berita PKK.</li>
+          <li>Klik menu <strong>Agenda</strong> untuk mengelola jadwal kegiatan.</li>
+          <li>Klik menu <strong>Program</strong> untuk update info Posyandu & Bank Sampah.</li>
+          <li>Klik <strong>Logout</strong> untuk keluar dari admin panel.</li>
+        </ul>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Supabase SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  <!-- Our scripts -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/supabase.js"></script>
+  <script src="assets/js/auth.js"></script>
+
+  <script>
+    // Guard: Redirect kalau belum login
+    (async function() {
+      const isAuth = await Auth.requireAuth();
+      if (!isAuth) return;
+
+      // Load user info
+      const admin = await Auth.getAdminInfo();
+      if (admin) {
+        document.getElementById('userName').textContent = admin.nama;
+        document.getElementById('userEmail').textContent = admin.email;
+      }
+
+      // Load stats
+      loadStats();
+    })();
+
+    async function loadStats() {
+      // Count berita
+      const { count: beritaCount } = await window.sb
+        .from('berita')
+        .select('*', { count: 'exact', head: true });
+      document.getElementById('statBerita').textContent = beritaCount || 0;
+
+      // Count agenda upcoming
+      const { count: agendaCount } = await window.sb
+        .from('agenda')
+        .select('*', { count: 'exact', head: true })
+        .eq('status', 'upcoming');
+      document.getElementById('statAgenda').textContent = agendaCount || 0;
+    }
+
+    async function handleLogout() {
+      if (confirm('Yakin mau logout?')) {
+        await Auth.logout();
+      }
+    }
+  </script>
+
+</body>
+</html>

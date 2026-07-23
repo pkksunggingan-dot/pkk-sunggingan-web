@@ -1067,7 +1067,21 @@ section:not(.hero):not(.tentang-hero) > .container > p {
   color: #A68A64;
   opacity: 0.6;
 }
+.berita-image-real {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
+.berita-loading {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--color-olive-light, #656D4A);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+}
 /* ── Card Content ── */
 .berita-content {
   padding: 24px;

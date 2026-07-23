@@ -377,108 +377,11 @@
             </a>
           </div>
 
-          <!-- Grid 3 Card Berita -->
-          <div class="berita-grid">
-
-            <!-- Card 1: Pelatihan Buket -->
-            <article class="berita-card">
-              <div class="berita-image">
-                <div class="berita-image-placeholder">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                    <circle cx="8.5" cy="8.5" r="1.5"/>
-                    <polyline points="21 15 16 10 5 21"/>
-                  </svg>
-                </div>
+              <!-- Grid 3 Card Berita (DYNAMIC dari Supabase) -->
+              <div class="berita-grid" id="beritaGrid">
+                <!-- Populated by JS: assets/js/homepage-berita.js -->
+                <div class="berita-loading">Memuat berita terkini...</div>
               </div>
-              <div class="berita-content">
-                <div class="berita-meta">
-                  <span class="berita-date">18 Juli 2026</span>
-                  <span class="berita-tag">Pokja II</span>
-                </div>
-                <h3 class="berita-title">
-                  Pelatihan Buket Kreatif Pokja II Diikuti 25 Warga
-                </h3>
-                <p class="berita-excerpt">
-                  Pelatihan keterampilan buket dari plastik daur ulang
-                  diadakan untuk pemberdayaan ekonomi warga.
-                </p>
-                <a href="berita/pelatihan-buket.html" class="berita-link">
-                  Baca Selengkapnya
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"/>
-                    <polyline points="12 5 19 12 12 19"/>
-                  </svg>
-                </a>
-              </div>
-            </article>
-
-            <!-- Card 2: Bank Sampah Juara -->
-            <article class="berita-card">
-              <div class="berita-image">
-                <div class="berita-image-placeholder">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                    <circle cx="8.5" cy="8.5" r="1.5"/>
-                    <polyline points="21 15 16 10 5 21"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="berita-content">
-                <div class="berita-meta">
-                  <span class="berita-date">15 Juli 2026</span>
-                  <span class="berita-tag">Pokja IV</span>
-                </div>
-                <h3 class="berita-title">
-                  Bank Sampah Sumber Makmur Raih Juara Favorit Kudus ASIK 2026
-                </h3>
-                <p class="berita-excerpt">
-                  Program pengelolaan sampah warga Sunggingan mendapat
-                  pengakuan tingkat kabupaten dari Pemkab Kudus.
-                </p>
-                <a href="berita/bank-sampah-juara.html" class="berita-link">
-                  Baca Selengkapnya
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"/>
-                    <polyline points="12 5 19 12 12 19"/>
-                  </svg>
-                </a>
-              </div>
-            </article>
-
-            <!-- Card 3: Rapat Koordinasi -->
-            <article class="berita-card">
-              <div class="berita-image">
-                <div class="berita-image-placeholder">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                    <circle cx="8.5" cy="8.5" r="1.5"/>
-                    <polyline points="21 15 16 10 5 21"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="berita-content">
-                <div class="berita-meta">
-                  <span class="berita-date">10 Juli 2026</span>
-                  <span class="berita-tag">Sekretariat</span>
-                </div>
-                <h3 class="berita-title">
-                  Rapat Koordinasi PKK Kelurahan Bulan Juli 2026
-                </h3>
-                <p class="berita-excerpt">
-                  Evaluasi program kerja semester I dan persiapan
-                  kegiatan HUT RI ke-81 di Kelurahan Sunggingan.
-                </p>
-                <a href="berita/rapat-juli.html" class="berita-link">
-                  Baca Selengkapnya
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"/>
-                    <polyline points="12 5 19 12 12 19"/>
-                  </svg>
-                </a>
-              </div>
-            </article>
-
           </div>
         </div>
       </section>
@@ -944,6 +847,10 @@
 
   </div>
 </footer>
+<!-- Supabase SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- Homepage dynamic berita -->
+<script src="assets/js/homepage-berita.js"></script>
 
   <!-- ═══════════════════════════════════════
        JAVASCRIPT
