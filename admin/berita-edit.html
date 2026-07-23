@@ -130,6 +130,30 @@
             <a href="/admin/berita.html" class="btn-secondary">Batal</a>
           </div>
 
+          <div class="admin-form-group">
+            <label for="foto" class="admin-form-label">
+              Foto Cover <span class="admin-form-label-hint">(JPG/PNG/WebP, max 3 MB)</span>
+            </label>
+            
+            <div id="fotoExistingLabel" style="display: none; font-size: 12px; color: var(--admin-olive-light); margin-bottom: 4px;">
+              📷 Foto saat ini (upload baru untuk ganti):
+            </div>
+            
+            <input 
+              type="file" 
+              id="foto" 
+              name="foto" 
+              class="admin-form-input admin-form-file" 
+              accept="image/jpeg,image/png,image/webp">
+            
+            <div id="fotoPreview" class="foto-preview" style="display: none;">
+              <img id="fotoPreviewImg" src="" alt="Preview">
+              <button type="button" class="btn-remove-foto" onclick="removeFoto()">✕ Hapus</button>
+            </div>
+            
+            <div id="fotoError" class="foto-error" style="display: none;"></div>
+          </div>
+
         </form>
 
       </div>
@@ -142,9 +166,134 @@
   <script src="assets/js/supabase.js"></script>
   <script src="assets/js/auth.js"></script>
   <script src="assets/js/berita.js"></script>
+  <script src="assets/js/storage.js"></script>
 
   <script>
     let currentBeritaId = null;
+    let selectedFile = null;
+    let existingFotoUrl = null;
+    let fotoRemoved = false;
+
+    document.getElementById('foto').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      const previewDiv = document.getElementById('fotoPreview');
+      const previewImg = document.getElementById('fotoPreviewImg');
+      const errorDiv = document.getElementById('fotoError');
+      const existingLabel = document.getElementById('fotoExistingLabel');
+
+      errorDiv.style.display = 'none';
+
+      if (!file) {
+        selectedFile = null;
+        return;
+      }
+
+      const validation = Storage.validateFile(file);
+      if (!validation.valid) {
+        errorDiv.textContent = '✗ ' + validation.error;
+        errorDiv.style.display = 'block';
+        this.value = '';
+        selectedFile = null;
+        return;
+      }
+
+      selectedFile = file;
+      existingLabel.style.display = 'none';
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        previewImg.src = evt.target.result;
+        previewDiv.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    });
+
+    window.removeFoto = function() {
+      selectedFile = null;
+      fotoRemoved = true;
+      document.getElementById('foto').value = '';
+      document.getElementById('fotoPreview').style.display = 'none';
+      document.getElementById('fotoExistingLabel').style.display = 'none';
+    };
+
+    document.getElementById('beritaForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const btn = document.getElementById('submitBtn');
+      const btnText = btn.querySelector('.btn-text');
+      const btnLoader = btn.querySelector('.btn-loader');
+      const alertBox = document.getElementById('alertMessage');
+
+      btn.disabled = true;
+      btnText.style.display = 'none';
+      btnLoader.style.display = 'inline';
+      alertBox.style.display = 'none';
+
+      let fotoUrl = existingFotoUrl; // Default: pakai foto existing
+
+      // Kalau user upload foto baru
+      if (selectedFile) {
+        btnLoader.textContent = 'Mengupload foto...';
+        const uploadResult = await Storage.uploadFoto(selectedFile);
+        
+        if (!uploadResult.success) {
+          alertBox.className = 'form-alert form-alert-error';
+          alertBox.textContent = '✗ Upload foto gagal: ' + uploadResult.error;
+          alertBox.style.display = 'block';
+          btn.disabled = false;
+          btnText.style.display = 'inline';
+          btnLoader.style.display = 'none';
+          btnLoader.textContent = 'Menyimpan...';
+          return;
+        }
+        
+        // Hapus foto lama kalau ada + ganti dengan yang baru
+        if (existingFotoUrl) {
+          await Storage.deleteFoto(existingFotoUrl);
+        }
+        fotoUrl = uploadResult.url;
+      } 
+      // Kalau user klik hapus foto tanpa upload baru
+      else if (fotoRemoved && existingFotoUrl) {
+        await Storage.deleteFoto(existingFotoUrl);
+        fotoUrl = null;
+      }
+
+      // Update berita
+      btnLoader.textContent = 'Menyimpan berita...';
+      const formData = {
+        judul: document.getElementById('judul').value.trim(),
+        tanggal: document.getElementById('tanggal').value,
+        tag: document.getElementById('tag').value,
+        excerpt: document.getElementById('excerpt').value.trim(),
+        isi: document.getElementById('isi').value.trim(),
+        foto_url: fotoUrl,
+        status: document.getElementById('status').value
+      };
+
+      formData.slug = Berita.slugify(formData.judul);
+
+      const result = await Berita.update(currentBeritaId, formData);
+
+      if (result.success) {
+        alertBox.className = 'form-alert form-alert-success';
+        alertBox.textContent = '✓ Berita berhasil diperbarui!';
+        alertBox.style.display = 'block';
+
+        setTimeout(() => {
+          window.location.href = '/admin/berita.html';
+        }, 1500);
+      } else {
+        alertBox.className = 'form-alert form-alert-error';
+        alertBox.textContent = '✗ Gagal update berita: ' + result.error;
+        alertBox.style.display = 'block';
+        
+        btn.disabled = false;
+        btnText.style.display = 'inline';
+        btnLoader.style.display = 'none';
+        btnLoader.textContent = 'Menyimpan...';
+      }
+    });
 
     (async function() {
       const isAuth = await Auth.requireAuth();
@@ -181,6 +330,14 @@
       document.getElementById('isi').value = berita.isi || '';
       document.getElementById('status').value = berita.status || 'draft';
 
+      // Pre-fill foto kalau ada
+      if (berita.foto_url) {
+        existingFotoUrl = berita.foto_url;
+        document.getElementById('fotoPreviewImg').src = berita.foto_url;
+        document.getElementById('fotoPreview').style.display = 'block';
+        document.getElementById('fotoExistingLabel').style.display = 'block';
+      }
+      
       // Show form
       document.getElementById('loadingState').style.display = 'none';
       document.getElementById('formCard').style.display = 'block';

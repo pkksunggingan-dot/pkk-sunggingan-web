@@ -123,6 +123,25 @@
           </div>
 
           <div class="admin-form-group">
+            <label for="foto" class="admin-form-label">
+              Foto Cover <span class="admin-form-label-hint">(JPG/PNG/WebP, max 3 MB)</span>
+            </label>
+            <input 
+              type="file" 
+              id="foto" 
+              name="foto" 
+              class="admin-form-input admin-form-file" 
+              accept="image/jpeg,image/png,image/webp">
+            
+            <div id="fotoPreview" class="foto-preview" style="display: none;">
+              <img id="fotoPreviewImg" src="" alt="Preview">
+              <button type="button" class="btn-remove-foto" onclick="removeFoto()">✕ Hapus</button>
+            </div>
+            
+            <div id="fotoError" class="foto-error" style="display: none;"></div>
+          </div>
+
+          <div class="admin-form-group">
             <label for="isi" class="admin-form-label">
               Isi Lengkap <span class="admin-form-label-hint">(paragraf lengkap berita)</span>
             </label>
@@ -163,6 +182,7 @@
   <script src="assets/js/supabase.js"></script>
   <script src="assets/js/auth.js"></script>
   <script src="assets/js/berita.js"></script>
+  <script src="assets/js/storage.js"></script>
 
   <script>
     (async function() {
@@ -180,6 +200,54 @@
       document.getElementById('tanggal').value = today;
     })();
 
+// File tetap: DOM references
+    let selectedFile = null;
+
+    // Handle file input change
+    document.getElementById('foto').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      const previewDiv = document.getElementById('fotoPreview');
+      const previewImg = document.getElementById('fotoPreviewImg');
+      const errorDiv = document.getElementById('fotoError');
+
+      errorDiv.style.display = 'none';
+
+      if (!file) {
+        selectedFile = null;
+        previewDiv.style.display = 'none';
+        return;
+      }
+
+      // Validate
+      const validation = Storage.validateFile(file);
+      if (!validation.valid) {
+        errorDiv.textContent = '✗ ' + validation.error;
+        errorDiv.style.display = 'block';
+        this.value = '';
+        selectedFile = null;
+        previewDiv.style.display = 'none';
+        return;
+      }
+
+      selectedFile = file;
+
+      // Show preview
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        previewImg.src = evt.target.result;
+        previewDiv.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // Remove foto handler (global)
+    window.removeFoto = function() {
+      selectedFile = null;
+      document.getElementById('foto').value = '';
+      document.getElementById('fotoPreview').style.display = 'none';
+    };
+
+    // Form submit handler
     document.getElementById('beritaForm').addEventListener('submit', async function(e) {
       e.preventDefault();
 
@@ -188,35 +256,55 @@
       const btnLoader = btn.querySelector('.btn-loader');
       const alertBox = document.getElementById('alertMessage');
 
-      // Show loading
       btn.disabled = true;
       btnText.style.display = 'none';
       btnLoader.style.display = 'inline';
       alertBox.style.display = 'none';
 
+      let fotoUrl = null;
+
+      // Upload foto DULU kalau ada
+      if (selectedFile) {
+        btnLoader.textContent = 'Mengupload foto...';
+        const uploadResult = await Storage.uploadFoto(selectedFile);
+        
+        if (!uploadResult.success) {
+          alertBox.className = 'form-alert form-alert-error';
+          alertBox.textContent = '✗ Upload foto gagal: ' + uploadResult.error;
+          alertBox.style.display = 'block';
+          btn.disabled = false;
+          btnText.style.display = 'inline';
+          btnLoader.style.display = 'none';
+          btnLoader.textContent = 'Menyimpan...';
+          return;
+        }
+        
+        fotoUrl = uploadResult.url;
+      }
+
+      // Simpan berita
+      btnLoader.textContent = 'Menyimpan berita...';
       const formData = {
         judul: document.getElementById('judul').value.trim(),
         tanggal: document.getElementById('tanggal').value,
         tag: document.getElementById('tag').value,
         excerpt: document.getElementById('excerpt').value.trim(),
         isi: document.getElementById('isi').value.trim(),
+        foto_url: fotoUrl,
         status: document.getElementById('status').value
       };
 
       const result = await Berita.create(formData);
 
       if (result.success) {
-        // Success alert
         alertBox.className = 'form-alert form-alert-success';
-        alertBox.textContent = '✓ Berita berhasil disimpan! Mengalihkan ke daftar berita...';
+        alertBox.textContent = '✓ Berita berhasil disimpan!';
         alertBox.style.display = 'block';
 
-        // Redirect ke list setelah 1.5 detik
         setTimeout(() => {
           window.location.href = '/admin/berita.html';
         }, 1500);
       } else {
-        // Error alert
         alertBox.className = 'form-alert form-alert-error';
         alertBox.textContent = '✗ Gagal simpan berita: ' + result.error;
         alertBox.style.display = 'block';
@@ -224,6 +312,7 @@
         btn.disabled = false;
         btnText.style.display = 'inline';
         btnLoader.style.display = 'none';
+        btnLoader.textContent = 'Menyimpan...';
       }
     });
 

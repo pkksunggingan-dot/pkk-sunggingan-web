@@ -83,7 +83,10 @@ const Berita = {
   /**
    * Delete berita
    */
-  async delete(id) {
+async delete(id) {
+    // Get berita dulu untuk tau foto_url-nya
+    const berita = await this.getById(id);
+
     const { error } = await window.sb
       .from('berita')
       .delete()
@@ -93,6 +96,12 @@ const Berita = {
       console.error('Error deleting berita:', error);
       return { success: false, error: error.message };
     }
+
+    // Kalau ada foto, hapus juga dari Storage
+    if (berita && berita.foto_url && window.Storage) {
+      await window.Storage.deleteFoto(berita.foto_url);
+    }
+
     return { success: true };
   },
 
