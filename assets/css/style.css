@@ -367,6 +367,46 @@ section:not(.hero):not(.tentang-hero) > .container > p {
   z-index: 1;
 }
 
+/* HERO - Background Photo Modifier (foto Ketapang Emas) */
+.hero-photo {
+  position: relative;
+  background-image:
+    linear-gradient(135deg, rgba(90, 61, 41, 0.75) 0%, rgba(65, 45, 30, 0.85) 100%),
+    url('../img/hero/hero-tentang-ketapang.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+}
+
+.hero-photo > .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Override .hero::before (yang aslinya cuma 40% width top-right) jadi vignette penuh */
+.hero-photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 30%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+  opacity: 1;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Mobile: adjust background position */
+@media (max-width: 640px) {
+  .hero-photo {
+    background-position: center center;
+  }
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: 3fr 2fr;
@@ -2362,6 +2402,41 @@ body.menu-open {
   margin-bottom: var(--space-2xl);
 }
 
+/* Foto bagan resmi susunan pengurus */
+.tentang-pengurus-photo {
+  margin: 0 auto var(--space-2xl);
+  max-width: 400px;
+  text-align: center;
+}
+
+.tentang-pengurus-photo a {
+  display: block;
+  border: 6px solid var(--color-white);
+  border-radius: var(--radius-md, 12px);
+  box-shadow: 0 12px 32px rgba(90, 61, 41, 0.18);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tentang-pengurus-photo a:hover,
+.tentang-pengurus-photo a:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(90, 61, 41, 0.28);
+}
+
+.tentang-pengurus-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.tentang-pengurus-photo figcaption {
+  margin-top: var(--space-md);
+  font-size: 13px;
+  color: var(--color-text-muted, #7a6a58);
+  font-style: italic;
+}
+
 .tentang-pengurus-subhead {
   font-family: var(--font-heading);
   font-size: 1.375rem;
@@ -2445,6 +2520,179 @@ body.menu-open {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   BAGAN STRUKTUR PENGURUS (org-chart style)
+   Ketua → Pengurus Inti → 4 Pokja, dengan garis penghubung
+   ─────────────────────────────────────────────────────────────── */
+.pchart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: var(--space-xl);
+}
+
+/* Garis trunk vertikal (Ketua → Inti → Pokja) */
+.pchart-trunk {
+  width: 2px;
+  height: 32px;
+  background: var(--color-primary-light);
+  flex: none;
+}
+
+/* Chip label cabang ("Pengurus Inti") */
+.pchart-branch-label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-md);
+  padding: 6px 20px;
+  background: var(--color-background);
+  border-radius: 999px;
+}
+
+/* Baris kartu bercabang (Pengurus Inti) dengan bus horizontal + tick */
+.pchart-fanout {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 26px;
+}
+
+.pchart-fanout::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: var(--color-primary-light);
+}
+
+.pchart-fanout > .tentang-pengurus-card {
+  position: relative;
+  width: 200px;
+  max-width: 60%;
+}
+
+.pchart-fanout > .tentang-pengurus-card::before {
+  content: '';
+  position: absolute;
+  top: -26px;
+  left: 50%;
+  width: 2px;
+  height: 26px;
+  background: var(--color-primary-light);
+  transform: translateX(-50%);
+}
+
+/* Baris 4 Pokja sebagai cabang bagan */
+.pchart-pokja-row {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 100%;
+  padding-top: 26px;
+}
+
+.pchart-pokja-row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: var(--color-primary-light);
+}
+
+.pchart-pokja {
+  position: relative;
+  flex: 1 1 200px;
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pchart-pokja::before {
+  content: '';
+  position: absolute;
+  top: -26px;
+  left: 50%;
+  width: 2px;
+  height: 26px;
+  background: var(--color-primary-light);
+  transform: translateX(-50%);
+}
+
+/* Label kepala tiap Pokja */
+.pchart-pokja-label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-text-dark) 0%, var(--color-accent) 100%);
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 16px rgba(65, 72, 51, 0.18);
+}
+
+/* Isi Pokja: kartu ditumpuk vertikal (override grid multi-kolom) */
+.tentang-pengurus-grid.pchart-pokja-body {
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+/* Mobile: matikan bus horizontal, tumpuk vertikal jadi daftar */
+@media (max-width: 760px) {
+  .pchart-fanout {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+    gap: 24px;
+  }
+
+  .pchart-fanout::before {
+    display: none;
+  }
+
+  .pchart-fanout > .tentang-pengurus-card {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .pchart-fanout > .tentang-pengurus-card::before {
+    display: none;
+  }
+
+  .pchart-pokja-row {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+  }
+
+  .pchart-pokja-row::before {
+    display: none;
+  }
+
+  .pchart-pokja {
+    max-width: 340px;
+    width: 100%;
+    flex: none;
+  }
+
+  .pchart-pokja::before {
+    display: none;
+  }
 }
 /* ───────────────────────────────────────────────────────────────
    TENTANG · SECTION 7: CTA HUBUNGI KAMI

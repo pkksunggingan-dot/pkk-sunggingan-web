@@ -356,34 +356,56 @@
           <p class="section-subtitle">33 anggota TP PKK Kelurahan Sunggingan</p>
         </div>
 
-        <!-- Ketua (highlight) -->
-        <div class="tentang-pengurus-lead">
+        <!-- Bagan resmi (foto papan susunan pengurus) -->
+        <figure class="tentang-pengurus-photo">
+          <a href="assets/img/hero/susunan-pengurus-pkk-sunggingan.jpg" target="_blank" rel="noopener" aria-label="Buka bagan susunan pengurus ukuran penuh">
+            <img
+              src="assets/img/hero/susunan-pengurus-pkk-sunggingan.jpg"
+              alt="Bagan susunan pengurus TP PKK Kelurahan Sunggingan periode 2024–2029, memuat Ketua Pembina, Ketua TP PKK, Wakil, Sekretaris, Bendahara, serta anggota Pokja I–IV"
+              loading="lazy"
+              width="360"
+            />
+          </a>
+          <figcaption>Bagan resmi susunan pengurus TP PKK Kelurahan Sunggingan &middot; Masa Bakti 2024&ndash;2029</figcaption>
+        </figure>
+
+        <!-- Bagan struktur: Ketua → Pengurus Inti → 4 Pokja -->
+        <div class="pchart">
+
+          <!-- Ketua (root) -->
           <article class="tentang-pengurus-card is-ketua">
             <p class="tentang-pengurus-name">Ny. Alicia Aryani</p>
             <p class="tentang-pengurus-role">Ketua TP PKK</p>
           </article>
-        </div>
 
-        <!-- Pengurus Inti -->
-        <h3 class="tentang-pengurus-subhead">Pengurus Inti</h3>
-        <div class="tentang-pengurus-grid">
-          <article class="tentang-pengurus-card">
-            <p class="tentang-pengurus-name">Ny. Umaiyah</p>
-            <p class="tentang-pengurus-role">Sekretaris</p>
-          </article>
-          <article class="tentang-pengurus-card">
-            <p class="tentang-pengurus-name">Nn. Laila Fairuz Salma</p>
-            <p class="tentang-pengurus-role">Wakil Sekretaris</p>
-          </article>
-          <article class="tentang-pengurus-card">
-            <p class="tentang-pengurus-name">Ny. Sri Umiyati</p>
-            <p class="tentang-pengurus-role">Bendahara</p>
-          </article>
-        </div>
+          <div class="pchart-trunk" aria-hidden="true"></div>
 
-        <!-- Pokja I -->
-        <h3 class="tentang-pengurus-subhead">Pokja I</h3>
-        <div class="tentang-pengurus-grid">
+          <!-- Pengurus Inti -->
+          <p class="pchart-branch-label">Pengurus Inti</p>
+          <div class="pchart-fanout">
+            <article class="tentang-pengurus-card">
+              <p class="tentang-pengurus-name">Ny. Umaiyah</p>
+              <p class="tentang-pengurus-role">Sekretaris</p>
+            </article>
+            <article class="tentang-pengurus-card">
+              <p class="tentang-pengurus-name">Nn. Laila Fairuz Salma</p>
+              <p class="tentang-pengurus-role">Wakil Sekretaris</p>
+            </article>
+            <article class="tentang-pengurus-card">
+              <p class="tentang-pengurus-name">Ny. Sri Umiyati</p>
+              <p class="tentang-pengurus-role">Bendahara</p>
+            </article>
+          </div>
+
+          <div class="pchart-trunk" aria-hidden="true"></div>
+
+          <!-- POKJA ROW: 4 kelompok kerja (cabang bagan) -->
+          <div class="pchart-pokja-row">
+
+          <!-- Pokja I -->
+          <div class="pchart-pokja">
+          <div class="pchart-pokja-label">Pokja I</div>
+          <div class="tentang-pengurus-grid pchart-pokja-body">
           <article class="tentang-pengurus-card">
 
             <p class="tentang-pengurus-name">Ny. Esther Suryati</p>
@@ -414,11 +436,13 @@
             <p class="tentang-pengurus-name">Nn. Adiba Arifia Fadilah</p>
             <p class="tentang-pengurus-role">Anggota</p>
           </article>
-        </div>
+          </div>
+          </div>
 
-        <!-- Pokja II -->
-        <h3 class="tentang-pengurus-subhead">Pokja II</h3>
-        <div class="tentang-pengurus-grid">
+          <!-- Pokja II -->
+          <div class="pchart-pokja">
+          <div class="pchart-pokja-label">Pokja II</div>
+          <div class="tentang-pengurus-grid pchart-pokja-body">
           <article class="tentang-pengurus-card">
 
             <p class="tentang-pengurus-name">Ny. Suhartatik</p>
@@ -464,11 +488,13 @@
             <p class="tentang-pengurus-name">Ny. Sri Chilyati</p>
             <p class="tentang-pengurus-role">Anggota</p>
           </article>
-        </div>
+          </div>
+          </div>
 
-        <!-- Pokja III -->
-        <h3 class="tentang-pengurus-subhead">Pokja III</h3>
-        <div class="tentang-pengurus-grid">
+          <!-- Pokja III -->
+          <div class="pchart-pokja">
+          <div class="pchart-pokja-label">Pokja III</div>
+          <div class="tentang-pengurus-grid pchart-pokja-body">
           <article class="tentang-pengurus-card">
 
             <p class="tentang-pengurus-name">Ny. Sri Asrifah</p>
@@ -504,11 +530,13 @@
             <p class="tentang-pengurus-name">Ny. Fitriani Khomsah</p>
             <p class="tentang-pengurus-role">Anggota</p>
           </article>
-        </div>
+          </div>
+          </div>
 
-        <!-- Pokja IV -->
-        <h3 class="tentang-pengurus-subhead">Pokja IV</h3>
-        <div class="tentang-pengurus-grid">
+          <!-- Pokja IV -->
+          <div class="pchart-pokja">
+          <div class="pchart-pokja-label">Pokja IV</div>
+          <div class="tentang-pengurus-grid pchart-pokja-body">
           <article class="tentang-pengurus-card">
 
             <p class="tentang-pengurus-name">Ny. Firma Indrayani</p>
@@ -544,7 +572,12 @@
             <p class="tentang-pengurus-name">Nn. Roza Amelia Uswatun Chasanah</p>
             <p class="tentang-pengurus-role">Anggota</p>
           </article>
-        </div>
+          </div>
+          </div>
+
+          </div><!-- /.pchart-pokja-row -->
+
+        </div><!-- /.pchart -->
 
       </div>
     </section>
