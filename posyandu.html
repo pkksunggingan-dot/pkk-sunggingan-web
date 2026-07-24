@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posyandu Balita & Lansia - TP PKK Kelurahan Sunggingan</title>
+  <meta name="description" content="Informasi lengkap Posyandu Balita & Lansia Kelurahan Sunggingan — layanan gratis, jadwal per RW, dan cara pendaftaran warga.">
+  
+  <link rel="icon" href="assets/img/logo/logo-pkk.PNG" type="image/png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/posyandu.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HEADER (Reuse dari tentang.html)
+       ═══════════════════════════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="header-brand">
+        <img src="assets/img/logo/logo-pkk.PNG" alt="Logo TP PKK" class="header-logo">
+        <div class="header-brand-text">
+          <span class="brand-name">TP PKK</span>
+          <span class="brand-tagline">Kelurahan Sunggingan</span>
+        </div>
+      </a>
+
+      <nav class="header-nav" aria-label="Navigasi utama">
+        <a href="tentang.html" class="nav-link">Tentang</a>
+        <a href="index.html#program" class="nav-link is-active">Program Kerja</a>
+        <a href="index.html#berita" class="nav-link">Berita</a>
+        <a href="index.html#agenda" class="nav-link">Agenda</a>
+        <a href="index.html#kontak" class="nav-link">Kontak</a>
+      </nav>
+
+      <a href="index.html#kontak" class="btn btn-outline btn-header-cta">Hubungi Kami</a>
+
+      <button class="mobile-menu-toggle" aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu-backdrop" aria-hidden="true"></div>
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav aria-label="Navigasi mobile">
+      <ul class="mobile-nav-list">
+        <li><a href="tentang.html" class="mobile-nav-link">Tentang</a></li>
+        <li><a href="index.html#program" class="mobile-nav-link">Program Kerja</a></li>
+        <li><a href="index.html#berita" class="mobile-nav-link">Berita</a></li>
+        <li><a href="index.html#agenda" class="mobile-nav-link">Agenda</a></li>
+        <li><a href="index.html#kontak" class="mobile-nav-link">Kontak</a></li>
+      </ul>
+      <a href="index.html#kontak" class="mobile-nav-cta">Hubungi Kami</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- SECTION 1: PAGE HERO -->
+    <section class="posyandu-hero">
+      <div class="container">
+        <nav class="posyandu-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Beranda</a>
+          <span aria-hidden="true">/</span>
+          <a href="index.html#program">Program Kerja</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Posyandu</span>
+        </nav>
+        <h1 class="posyandu-hero-title">Posyandu Balita &amp; Lansia</h1>
+        <p class="posyandu-hero-subtitle">Layanan kesehatan rutin bagi warga Sunggingan — gratis, oleh kader terlatih, bekerja sama dengan UPTD Puskesmas Purwosari.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: CARA DAFTAR -->
+    <section class="posyandu-section posyandu-section-daftar">
+      <div class="container">
+        <div class="posyandu-section-header">
+          <span class="section-label">INFORMASI DASAR</span>
+          <h2 class="section-title">Cara Warga Mendaftar Posyandu</h2>
+          <p class="section-subtitle">Tanpa biaya, cukup datang ke kader RW dengan dokumen yang tersedia.</p>
+        </div>
+
+        <div class="posyandu-daftar-grid">
+          <div class="posyandu-daftar-card">
+            <div class="posyandu-daftar-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+            </div>
+            <h3 class="posyandu-daftar-title">Dokumen</h3>
+            <p class="posyandu-daftar-desc">Bawa Kartu Keluarga (KK) sebagai dokumen pendaftaran utama.</p>
+          </div>
+
+          <div class="posyandu-daftar-card">
+            <div class="posyandu-daftar-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3 class="posyandu-daftar-title">Daftar ke Kader</h3>
+            <p class="posyandu-daftar-desc">Silakan menghubungi kader Posyandu di RW masing-masing untuk pendaftaran.</p>
+          </div>
+
+          <div class="posyandu-daftar-card">
+            <div class="posyandu-daftar-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 12V8h-4"/>
+                <path d="M20 20V16h-4"/>
+                <path d="M4 4v4h4"/>
+                <path d="M4 12v4h4"/>
+                <circle cx="12" cy="12" r="2"/>
+              </svg>
+            </div>
+            <h3 class="posyandu-daftar-title">Gratis</h3>
+            <p class="posyandu-daftar-desc">Seluruh layanan Posyandu tidak dipungut biaya (100% gratis untuk warga).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: LAYANAN -->
+    <section class="posyandu-section posyandu-section-layanan">
+      <div class="container">
+        <div class="posyandu-section-header">
+          <span class="section-label">LAYANAN LENGKAP</span>
+          <h2 class="section-title">Jenis Layanan yang Tersedia</h2>
+        </div>
+
+        <div class="posyandu-layanan-grid">
+          <div class="posyandu-layanan-card">
+            <div class="posyandu-layanan-header">
+              <div class="posyandu-layanan-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                </svg>
+              </div>
+              <h3 class="posyandu-layanan-title">Untuk Balita</h3>
+            </div>
+            <ul class="posyandu-layanan-list">
+              <li>Imunisasi rutin sesuai jadwal Kemenkes</li>
+              <li>Pemberian vitamin A (Februari &amp; Agustus)</li>
+              <li>Penimbangan berat badan &amp; pengukuran tinggi</li>
+              <li>Konsultasi gizi &amp; tumbuh kembang</li>
+              <li>Pemantauan buku KIA (Kesehatan Ibu &amp; Anak)</li>
+              <li>Rujukan ke Puskesmas jika diperlukan</li>
+            </ul>
+          </div>
+
+          <div class="posyandu-layanan-card">
+            <div class="posyandu-layanan-header">
+              <div class="posyandu-layanan-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+              </div>
+              <h3 class="posyandu-layanan-title">Untuk Lansia</h3>
+            </div>
+            <ul class="posyandu-layanan-list">
+              <li>Pemeriksaan tekanan darah (tensi)</li>
+              <li>Cek gula darah &amp; kolesterol</li>
+              <li>Konsultasi kesehatan umum</li>
+              <li>Senam lansia &amp; aktivitas kesehatan</li>
+              <li>Pemantauan berat badan berkala</li>
+              <li>Edukasi pola hidup sehat lansia</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: JADWAL BULANAN (DYNAMIC) -->
+    <section class="posyandu-section posyandu-section-jadwal" id="jadwal">
+      <div class="container">
+        <div class="posyandu-section-header">
+          <span class="section-label">JADWAL RUTIN</span>
+          <h2 class="section-title" id="jadwalTitle">Jadwal Posyandu Bulan Ini</h2>
+          <p class="section-subtitle">Jadwal diperbarui setiap awal bulan oleh admin PKK. Untuk konfirmasi terbaru, hubungi kader RW masing-masing.</p>
+        </div>
+
+        <div id="jadwalContainer">
+          <div class="posyandu-loading">Memuat jadwal terkini...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: INFO KADER + PUSKESMAS -->
+    <section class="posyandu-section posyandu-section-kader">
+      <div class="container">
+        <div class="posyandu-info-grid">
+          <div class="posyandu-info-card">
+            <span class="posyandu-info-label">TIM KADER POSYANDU</span>
+            <h2 class="posyandu-info-title">40 Kader Terlatih</h2>
+            <p class="posyandu-info-desc">
+              Posyandu Kelurahan Sunggingan diperkuat oleh 40 kader terlatih yang tersebar di seluruh RW. Kader-kader ini secara rutin mengikuti pelatihan dari Puskesmas untuk memastikan kualitas layanan tetap terjaga.
+            </p>
+            <div class="posyandu-info-highlight">
+              <strong>Ketua Posyandu:</strong> Ibu Chalimatus Sa'diyah
+            </div>
+          </div>
+
+          <div class="posyandu-info-card posyandu-info-card-partner">
+            <span class="posyandu-info-label">PUSKESMAS PARTNER</span>
+            <h2 class="posyandu-info-title">UPTD Puskesmas Purwosari</h2>
+            <p class="posyandu-info-desc">
+              Posyandu Sunggingan bekerja sama dengan UPTD Puskesmas Purwosari untuk penyediaan tenaga kesehatan, obat-obatan, vaksin, dan rujukan medis lanjutan bagi warga yang membutuhkan.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: CTA -->
+    <section class="posyandu-cta">
+      <div class="container">
+        <div class="posyandu-cta-content">
+          <h2>Ada Pertanyaan Tentang Posyandu?</h2>
+          <p>Sekretariat TP PKK Sunggingan siap membantu Ibu/Bapak. Hubungi kami melalui email atau datang langsung ke Kantor Kelurahan.</p>
+          <div class="posyandu-cta-actions">
+            <a href="mailto:pkksunggingan@gmail.com" class="btn btn-cta-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              Kirim Email
+            </a>
+            <a href="index.html#agenda" class="btn btn-cta-secondary">Lihat Agenda Lainnya</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER (Reuse dari tentang.html - copy paste langsung)
+       ═══════════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        
+        <div class="footer-col footer-brand">
+          <div class="footer-logo">
+            <img src="assets/img/logo/logo-pkk.PNG" alt="Logo TP PKK Kelurahan Sunggingan" class="footer-logo-img">
+            <div class="footer-brand-text">
+              <span class="footer-brand-name">TP PKK</span>
+              <span class="footer-brand-sub">Kelurahan Sunggingan</span>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Portal resmi Gerakan Pemberdayaan &amp; Kesejahteraan Keluarga
+            Kelurahan Sunggingan. Untuk warga, oleh kader.
+          </p>
+          <div class="footer-address">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            Kec. Kota, Kab. Kudus, Jawa Tengah
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Layanan</h4>
+          <ul class="footer-links">
+            <li><a href="posyandu.html">Posyandu</a></li>
+            <li><a href="index.html#berita">Bank Sampah</a></li>
+            <li><a href="index.html#berita">UP2K &amp; UMKM</a></li>
+            <li><a href="index.html#berita">Rumah Dilan</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Info</h4>
+          <ul class="footer-links">
+            <li><a href="tentang.html">Tentang PKK</a></li>
+            <li><a href="index.html#program">Program Kerja</a></li>
+            <li><a href="index.html#agenda">Agenda Kegiatan</a></li>
+            <li><a href="index.html#berita">Berita</a></li>
+            <li><a href="tentang.html#pengurus">Struktur Pengurus</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Terkait</h4>
+          <ul class="footer-links">
+            <li><a href="https://kelurahan-sunggingan.kuduskab.go.id" target="_blank" rel="noopener">Kelurahan Sunggingan</a></li>
+            <li><a href="https://pkk.jatengprov.go.id" target="_blank" rel="noopener">PKK Jawa Tengah</a></li>
+            <li><a href="https://kuduskab.go.id" target="_blank" rel="noopener">Pemkab Kudus</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          © 2026 TP PKK Kelurahan Sunggingan. Seluruh hak dilindungi.
+        </p>
+        <p class="footer-credit">
+          Dikembangkan oleh Mahasiswa KKN UMK 2026
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Supabase SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Homepage dynamic script (untuk jadwal Posyandu) -->
+  <script src="assets/js/posyandu-jadwal.js"></script>
+  <!-- Main JS (mobile menu, smooth scroll) -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

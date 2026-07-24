@@ -747,3 +747,154 @@ body {
   border-radius: 4px;
   font-size: 13px;
 }
+/* ═══════════════════════════════════════════════════════════════
+   FILTER BAR (untuk list page)
+   ═══════════════════════════════════════════════════════════════ */
+
+.admin-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 16px 20px;
+  background: var(--admin-white);
+  border-radius: 8px;
+  border: 1px solid var(--admin-border);
+}
+
+.admin-filter-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--admin-text);
+  white-space: nowrap;
+}
+
+.admin-filter-bar select {
+  padding: 8px 12px;
+  border: 1.5px solid var(--admin-border);
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+}
+
+.admin-filter-bar select:focus {
+  outline: none;
+  border-color: var(--admin-primary);
+}
+/* ═══════════════════════════════════════════════════════════════
+   PROGRAM CARD (Admin Page)
+   ═══════════════════════════════════════════════════════════════ */
+
+.program-grid-admin {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+}
+
+.program-card-admin {
+  background: var(--admin-white);
+  border: 1.5px solid var(--admin-border);
+  border-radius: 12px;
+  padding: 28px 24px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.program-card-admin:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(127, 85, 57, 0.12);
+  border-color: var(--admin-primary);
+}
+
+.program-card-admin-disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.program-card-admin-disabled:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--admin-border);
+}
+
+.program-card-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--admin-cream-light);
+  color: var(--admin-primary);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.program-card-admin-disabled .program-card-icon {
+  background: var(--admin-gray);
+  color: var(--admin-olive-light);
+}
+
+.program-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--admin-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.program-card-admin-disabled .program-card-title {
+  color: var(--admin-olive-light);
+}
+
+.program-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--admin-text);
+  margin: 0;
+  flex-grow: 1;
+}
+
+.program-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid var(--admin-border);
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.program-card-count {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--admin-olive-dark);
+}
+
+.program-card-cta {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--admin-primary);
+}
+
+.program-card-badge-soon {
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--admin-cream);
+  color: var(--admin-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 4px;
+}

@@ -1,0 +1,522 @@
+/* ═══════════════════════════════════════════════════════════════
+   HEADER NAV OVERRIDE (fix dempetan di posyandu.html)
+   ═══════════════════════════════════════════════════════════════ */
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.header-nav .nav-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #2A2418;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  padding: 4px 0;
+  position: relative;
+}
+
+.header-nav .nav-link:hover {
+  color: #7f5539;
+}
+
+.header-nav .nav-link.is-active {
+  color: #7f5539;
+  font-weight: 600;
+}
+
+.header-nav .nav-link.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background-color: #7f5539;
+}
+
+@media (max-width: 968px) {
+  .header-nav {
+    display: none;
+  }
+}
+/* ═══════════════════════════════════════════════════════════════
+   HALAMAN POSYANDU
+   ═══════════════════════════════════════════════════════════════ */
+
+/* --- Page Hero --- */
+.posyandu-hero {
+  background: linear-gradient(135deg, #7f5539 0%, #5a3d29 100%);
+  padding: 100px 0 80px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.posyandu-breadcrumb {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #EDE0D4;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.posyandu-breadcrumb a {
+  color: #EDE0D4;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.posyandu-breadcrumb a:hover {
+  color: #FFFFFF;
+}
+
+.posyandu-breadcrumb span[aria-current] {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.posyandu-hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 16px 0;
+  color: #FFFFFF;
+}
+
+.posyandu-hero-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #EDE0D4;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* --- Section Base --- */
+.posyandu-section {
+  padding: 80px 0;
+}
+
+.posyandu-section-daftar { background: #FFFFFF; }
+.posyandu-section-layanan { background: #F5EFE6; }
+.posyandu-section-jadwal { background: #FFFFFF; }
+.posyandu-section-kader { background: #EDE0D4; }
+
+.posyandu-section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 48px;
+}
+
+.posyandu-section-header .section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: #7f5539;
+  margin: 4px 0 12px 0;
+}
+
+.posyandu-section-header .section-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #656D4A;
+}
+
+/* --- Section 2: Cara Daftar --- */
+.posyandu-daftar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.posyandu-daftar-card {
+  background: #FFFFFF;
+  border: 1px solid #EDE0D4;
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.posyandu-daftar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(127, 85, 57, 0.1);
+}
+
+.posyandu-daftar-icon {
+  width: 64px;
+  height: 64px;
+  background: #EDE0D4;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  color: #7f5539;
+}
+
+.posyandu-daftar-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: #414833;
+  margin: 0 0 8px 0;
+}
+
+.posyandu-daftar-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #2A2418;
+  margin: 0;
+}
+
+/* --- Section 3: Layanan --- */
+.posyandu-layanan-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.posyandu-layanan-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 32px;
+  border-left: 4px solid #7f5539;
+}
+
+.posyandu-layanan-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #EDE0D4;
+}
+
+.posyandu-layanan-icon {
+  width: 48px;
+  height: 48px;
+  background: #EDE0D4;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7f5539;
+  flex-shrink: 0;
+}
+
+.posyandu-layanan-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: #7f5539;
+  margin: 0;
+}
+
+.posyandu-layanan-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.posyandu-layanan-list li {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #2A2418;
+  padding: 8px 0 8px 24px;
+  position: relative;
+}
+
+.posyandu-layanan-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #656D4A;
+  font-weight: 700;
+}
+
+/* --- Section 4: Jadwal --- */
+.posyandu-loading,
+.posyandu-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #656D4A;
+  font-family: 'Inter', sans-serif;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.posyandu-empty svg {
+  color: #A68A64;
+  margin-bottom: 16px;
+}
+
+.posyandu-empty h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: #7f5539;
+  margin: 0 0 12px 0;
+}
+
+.posyandu-empty p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #2A2418;
+  margin: 0;
+}
+
+.posyandu-jadwal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.posyandu-jadwal-card {
+  background: #F5EFE6;
+  border-radius: 12px;
+  padding: 20px;
+  border-top: 4px solid #7f5539;
+}
+
+.posyandu-jadwal-rw {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #7f5539;
+  margin-bottom: 12px;
+}
+
+.posyandu-jadwal-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.posyandu-jadwal-hari {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #414833;
+}
+
+.posyandu-jadwal-tanggal {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #656D4A;
+}
+
+.posyandu-jadwal-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #656D4A;
+}
+
+.posyandu-jadwal-jam,
+.posyandu-jadwal-lokasi {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.posyandu-jadwal-jenis-badge {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 10px;
+  background: #7f5539;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.posyandu-jadwal-catatan {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: rgba(127, 85, 57, 0.05);
+  border-left: 3px solid #A68A64;
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-size: 12px;
+  color: #656D4A;
+  border-radius: 4px;
+}
+
+/* --- Section 5: Info Kader + Puskesmas --- */
+.posyandu-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.posyandu-info-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 40px 32px;
+}
+
+.posyandu-info-card-partner {
+  background: linear-gradient(135deg, #656D4A 0%, #414833 100%);
+  color: #FFFFFF;
+}
+
+.posyandu-info-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #A68A64;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.posyandu-info-card-partner .posyandu-info-label {
+  color: #EDE0D4;
+}
+
+.posyandu-info-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #7f5539;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.posyandu-info-card-partner .posyandu-info-title {
+  color: #FFFFFF;
+}
+
+.posyandu-info-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #2A2418;
+  margin: 0 0 20px 0;
+}
+
+.posyandu-info-card-partner .posyandu-info-desc {
+  color: #EDE0D4;
+}
+
+.posyandu-info-highlight {
+  padding: 12px 16px;
+  background: #F5EFE6;
+  border-left: 4px solid #7f5539;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #2A2418;
+}
+
+/* --- Section 6: CTA --- */
+.posyandu-cta {
+  background: linear-gradient(135deg, #7f5539 0%, #5a3d29 100%);
+  padding: 80px 0;
+  color: #FFFFFF;
+}
+
+.posyandu-cta-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.posyandu-cta-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: #FFFFFF;
+  margin: 0 0 12px 0;
+}
+
+.posyandu-cta-content p {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #EDE0D4;
+  margin: 0 0 32px 0;
+}
+
+.posyandu-cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: #EDE0D4;
+  color: #7f5539;
+  text-decoration: none;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.btn-cta-primary:hover {
+  transform: translateY(-2px);
+}
+
+.btn-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 28px;
+  background: transparent;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  text-decoration: none;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.btn-cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Responsive --- */
+@media (max-width: 968px) {
+  .posyandu-hero-title { font-size: 36px; }
+  .posyandu-daftar-grid,
+  .posyandu-layanan-grid,
+  .posyandu-info-grid {
+    grid-template-columns: 1fr;
+  }
+  .posyandu-section-header .section-title { font-size: 28px; }
+}
+
+@media (max-width: 640px) {
+  .posyandu-hero { padding: 60px 0 48px; }
+  .posyandu-hero-title { font-size: 28px; }
+  .posyandu-section { padding: 48px 0; }
+  .posyandu-cta-content h2 { font-size: 24px; }
+}
