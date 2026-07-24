@@ -52,3 +52,9 @@ build/
 *.tmp
 *.bak
 *.old
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
